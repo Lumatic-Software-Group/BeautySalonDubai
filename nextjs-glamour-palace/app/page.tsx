@@ -4,6 +4,11 @@ import { useState, useEffect } from 'react'
 import Navigation from '@/components/Navigation'
 import HeroSection from '@/components/HeroSection'
 import ServicesSection from '@/components/ServicesSection'
+import VirtualTourSection from '@/components/VirtualTourSection'
+import TestimonialsSection from '@/components/TestimonialsSection'
+import CareersSection from '@/components/CareersSection'
+import ContactSection from '@/components/ContactSection'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   const [currentLanguage, setCurrentLanguage] = useState('en')
@@ -36,6 +41,15 @@ export default function Home() {
       fa: 'گلامور پالس - صالون زیبایی دبی'
     }
     document.title = titles[currentLanguage as keyof typeof titles]
+    
+    // Apply Vazir font for Persian
+    if (currentLanguage === 'fa') {
+      document.documentElement.style.setProperty('--font-body', "'Vazir', 'Tahoma', 'Arial', sans-serif")
+      document.documentElement.style.setProperty('--font-headline', "'Vazir', 'Tahoma', 'Arial', sans-serif")
+    } else {
+      document.documentElement.style.setProperty('--font-body', "'Inter', sans-serif")
+      document.documentElement.style.setProperty('--font-headline', "'Bodoni Moda', serif")
+    }
   }, [currentLanguage])
 
   const handleLanguageChange = (lang: string) => {
@@ -43,13 +57,40 @@ export default function Home() {
   }
 
   return (
-    <main>
+    <main className="main-content">
       <Navigation 
         currentLanguage={currentLanguage}
         onLanguageChange={handleLanguageChange}
       />
       <HeroSection currentLanguage={currentLanguage} />
       <ServicesSection currentLanguage={currentLanguage} />
+      <VirtualTourSection currentLanguage={currentLanguage} />
+      <TestimonialsSection currentLanguage={currentLanguage} />
+      <CareersSection currentLanguage={currentLanguage} />
+      <ContactSection currentLanguage={currentLanguage} />
+      <Footer currentLanguage={currentLanguage} />
+      
+      <style jsx>{`
+        .main-content {
+          scroll-behavior: smooth;
+        }
+        
+        /* Smooth scrolling for all sections */
+        :global(section) {
+          scroll-margin-top: 80px;
+        }
+        
+        /* Enhanced scroll snap for better navigation */
+        @media (min-width: 769px) {
+          :global(html) {
+            scroll-snap-type: y proximity;
+          }
+          
+          :global(section) {
+            scroll-snap-align: start;
+          }
+        }
+      `}</style>
     </main>
   )
 }

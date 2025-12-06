@@ -194,16 +194,30 @@ p, span, div, li, td, th {
   animation: fadeInUp 0.8s var(--transition-smooth) forwards;
 }
 
-/* RTL Support for Persian */
+/* Enhanced RTL Support for Persian with Vazir Font */
 [dir="rtl"] {
   text-align: right;
-  font-family: 'Vazir', 'Tahoma', var(--font-body) !important;
+  font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+}
+
+[dir="rtl"] * {
+  font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
 }
 
 [dir="rtl"] .hero-title,
-[dir="rtl"] .section-title {
-  font-family: 'Vazir', var(--font-headline) !important;
-  line-height: 1.4;
+[dir="rtl"] .section-title,
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, 
+[dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+  font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+[dir="rtl"] p, [dir="rtl"] span, [dir="rtl"] div, 
+[dir="rtl"] li, [dir="rtl"] button, [dir="rtl"] a {
+  font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+  line-height: 1.8;
+  text-align: justify;
 }
 
 [dir="rtl"] input,
@@ -211,6 +225,19 @@ p, span, div, li, td, th {
 [dir="rtl"] select {
   text-align: right;
   direction: rtl;
+  font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+}
+
+[dir="rtl"] .btn-base {
+  font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+}
+
+/* Improve Persian text readability */
+[dir="rtl"] .hero-subtitle,
+[dir="rtl"] .testimonial-text,
+[dir="rtl"] .service-card p {
+  line-height: 2;
+  text-align: justify;
 }
 
 /* Accessibility */
