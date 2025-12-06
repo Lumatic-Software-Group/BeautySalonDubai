@@ -1,0 +1,506 @@
+/* ===== RESPONSIVE STYLES - Beauty Salon Website ===== */
+
+/* Tablet Styles (768px - 1024px) */
+@media (max-width: 1024px) {
+    .container-enhanced {
+        padding: 0 var(--space-xl);
+    }
+    
+    .container {
+        padding: 0 var(--space-xl);
+    }
+    
+    /* Hero Adjustments */
+    .hero-stats {
+        gap: var(--space-xl);
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+    
+    .hero-actions .btn-base {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Services Grid */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+    }
+    
+    /* Social Proof */
+    .social-proof-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+    
+    .trust-badges {
+        flex-direction: row;
+        gap: var(--space-lg);
+        overflow-x: auto;
+        padding-bottom: var(--space-md);
+    }
+    
+    .trust-badge {
+        min-width: 250px;
+    }
+    
+    .careers-content,
+    .contact-content {
+        gap: var(--space-2xl);
+    }
+    
+    .nav-menu {
+        gap: var(--space-md);
+    }
+    
+    .tour-controls {
+        gap: var(--space-sm);
+    }
+    
+    .tour-btn {
+        padding: var(--space-sm) var(--space-md);
+        font-size: var(--text-sm);
+    }
+}
+
+/* Mobile Landscape (481px - 767px) */
+@media (max-width: 767px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    /* Navigation Mobile */
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 50px;
+        transition: right 0.3s ease;
+        gap: 30px;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .nav-menu a {
+        font-size: 1.2rem;
+        padding: 15px 0;
+        width: 80%;
+        text-align: center;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    /* Hamburger Animation */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* Hero Section Mobile */
+    .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+    
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    
+    /* Video Optimization for Mobile */
+    #hero-video {
+        object-position: center center;
+    }
+    
+    .hero-overlay {
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Services Grid Mobile */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-top: 40px;
+    }
+    
+    .service-card {
+        padding: 30px 25px;
+    }
+    
+    /* Section Titles Mobile */
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    
+    /* Virtual Tour Mobile */
+    #virtual-tour-canvas {
+        height: 300px;
+    }
+    
+    .tour-controls {
+        gap: 8px;
+        margin-top: 20px;
+    }
+    
+    .tour-btn {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+    
+    /* Careers Section Mobile */
+    .careers-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .careers-text h3 {
+        font-size: 1.7rem;
+    }
+    
+    /* Contact Section Mobile */
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    /* Footer Mobile */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    /* Language Toggle Mobile */
+    .language-toggle {
+        top: 15px;
+        right: 15px;
+    }
+    
+    .lang-btn {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+    
+    /* Testimonials Mobile */
+    .testimonial {
+        padding: 30px 20px;
+    }
+    
+    .testimonial-content p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Mobile Portrait (320px - 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Hero Section Small Mobile */
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .cta-button {
+        padding: 10px 25px;
+        font-size: 0.95rem;
+    }
+    
+    /* Navigation Small Mobile */
+    .nav-container {
+        padding: 0 15px;
+    }
+    
+    .logo h2 {
+        font-size: 1.5rem;
+    }
+    
+    .nav-menu {
+        top: 60px;
+        height: calc(100vh - 60px);
+        padding-top: 30px;
+    }
+    
+    .nav-menu a {
+        font-size: 1.1rem;
+    }
+    
+    /* Section Titles Small Mobile */
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 35px;
+    }
+    
+    /* Services Small Mobile */
+    .service-card {
+        padding: 25px 20px;
+    }
+    
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .service-icon {
+        font-size: 2.5rem;
+    }
+    
+    /* Virtual Tour Small Mobile */
+    #virtual-tour-canvas {
+        height: 250px;
+        border-radius: 15px;
+    }
+    
+    .tour-controls {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .tour-btn {
+        width: 200px;
+        text-align: center;
+    }
+    
+    /* Careers Small Mobile */
+    .careers-text h3 {
+        font-size: 1.5rem;
+    }
+    
+    .position-card {
+        padding: 20px;
+    }
+    
+    /* Contact Form Small Mobile */
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        padding: 12px;
+    }
+    
+    /* Language Toggle Small Mobile */
+    .language-toggle {
+        top: 10px;
+        right: 10px;
+        flex-direction: column;
+        gap: 3px;
+    }
+    
+    .lang-btn {
+        padding: 5px 8px;
+        font-size: 0.8rem;
+        border-radius: 15px;
+    }
+    
+    /* Testimonials Small Mobile */
+    .testimonial {
+        padding: 25px 15px;
+    }
+    
+    .testimonial-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    /* Footer Small Mobile */
+    .footer {
+        padding: 40px 0 15px;
+    }
+    
+    .footer-section h4 {
+        font-size: 1.1rem;
+    }
+    
+    .social-links a {
+        font-size: 1.3rem;
+    }
+}
+
+/* Extra Small Mobile (< 320px) */
+@media (max-width: 319px) {
+    .hero-title {
+        font-size: 1.7rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .service-card {
+        padding: 20px 15px;
+    }
+    
+    .tour-btn {
+        width: 180px;
+        padding: 8px 12px;
+        font-size: 0.75rem;
+    }
+    
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .footer-content {
+        gap: 20px;
+    }
+}
+
+/* Landscape Orientation Adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 100px 0 50px;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .nav-menu {
+        height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+    
+    #virtual-tour-canvas {
+        height: 200px;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Optimize for retina displays */
+    .service-icon {
+        font-size: 3.2rem;
+    }
+    
+    .social-links a {
+        font-size: 1.6rem;
+    }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .hero-title,
+    .hero-subtitle,
+    .cta-button {
+        animation: none;
+        opacity: 1;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .navbar {
+        background: rgba(30, 30, 30, 0.95);
+    }
+    
+    .nav-menu a {
+        color: #e0e0e0;
+    }
+    
+    .hero {
+        background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    }
+    
+    .hero-title {
+        color: #f0f0f0;
+    }
+    
+    .hero-subtitle {
+        color: #c0c0c0;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    .language-toggle,
+    .hamburger,
+    #hero-canvas,
+    #virtual-tour-canvas,
+    .tour-controls {
+        display: none !important;
+    }
+    
+    .hero {
+        height: auto;
+        padding: 50px 0;
+        background: white !important;
+    }
+    
+    .hero-title,
+    .hero-subtitle {
+        color: black !important;
+    }
+    
+    .section-title {
+        color: black !important;
+    }
+    
+    .service-card {
+        break-inside: avoid;
+        margin-bottom: 20px;
+    }
+    
+    .contact-form {
+        display: none;
+    }
+}

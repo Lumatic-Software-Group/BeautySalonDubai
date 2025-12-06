@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glamour Palace - Dubai Beauty Salon | صالون زیبایی گلامور پالس</title>
+    <meta name="description" content="Premium beauty salon in Dubai offering luxury services | صالون زیبایی لوکس در دبی">
+    <link rel="stylesheet" href="styles/design-system.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button onclick="toggleLanguage('en')" class="lang-btn active" id="en-btn">EN</button>
+        <button onclick="toggleLanguage('fa')" class="lang-btn" id="fa-btn">فا</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2 data-en="Glamour Palace" data-fa="گلامور پالس">Glamour Palace</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" data-en="Home" data-fa="خانه">Home</a></li>
+                <li><a href="#services" data-en="Services" data-fa="خدمات">Services</a></li>
+                <li><a href="#gallery" data-en="Gallery" data-fa="گالری">Gallery</a></li>
+                <li><a href="#testimonials" data-en="Testimonials" data-fa="نظرات">Testimonials</a></li>
+                <li><a href="#careers" data-en="Careers" data-fa="فرصت‌های شغلی">Careers</a></li>
+                <li><a href="#contact" data-en="Contact" data-fa="تماس">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-video-container">
+            <video autoplay muted loop playsinline id="hero-video" preload="auto">
+                <source src="assets/videos/hero-video.mp4" type="video/mp4">
+                <source src="assets/videos/hero-video.webm" type="video/webm">
+                <!-- Fallback for browsers that don't support video -->
+                <div class="hero-video-fallback"></div>
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge animate-fade-in-up">
+                <span data-en="Dubai's Premier Beauty Destination" data-fa="مقصد اصلی زیبایی دبی">Dubai's Premier Beauty Destination</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line" data-en="Discover Your" data-fa="زیبایی درونی">Discover Your</span>
+                <span class="title-line title-highlight gradient-primary" data-en="Inner Beauty" data-fa="خود را کشف کنید">Inner Beauty</span>
+            </h1>
+            <p class="hero-subtitle" data-en="Experience luxury beauty services in the heart of Downtown Dubai" data-fa="تجربه خدمات زیبایی لوکس در قلب مرکز شهر دبی">Experience luxury beauty services in the heart of Downtown Dubai</p>
+            <div class="hero-actions">
+                <button class="btn-base btn-primary btn-ripple" data-en="Book Consultation" data-fa="رزرو مشاوره">Book Consultation</button>
+                <button class="btn-base btn-secondary btn-ripple" onclick="document.getElementById('virtual-tour-canvas').scrollIntoView({behavior: 'smooth'})" data-en="Virtual Tour" data-fa="تور مجازی">Virtual Tour</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">2000+</span>
+                    <span class="stat-label" data-en="Happy Clients" data-fa="مشتری راضی">Happy Clients</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5★</span>
+                    <span class="stat-label" data-en="Google Rating" data-fa="امتیاز گوگل">Google Rating</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">8+</span>
+                    <span class="stat-label" data-en="Years Experience" data-fa="سال تجربه">Years Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title" data-en="Our Services" data-fa="خدمات ما">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="assets/icons/hair-styling.svg" alt="Hair Styling" width="64" height="64">
+                    </div>
+                    <h3 data-en="Hair Styling" data-fa="آرایش مو">Hair Styling</h3>
+                    <p data-en="Professional cuts, colors, and styling for every occasion" data-fa="کوتاهی، رنگ و استایل حرفه‌ای برای هر مناسبت">Professional cuts, colors, and styling for every occasion</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="assets/icons/nail-care.svg" alt="Nail Care" width="64" height="64">
+                    </div>
+                    <h3 data-en="Nail Care" data-fa="مراقبت از ناخن">Nail Care</h3>
+                    <p data-en="Manicure, pedicure, and nail art services" data-fa="مانیکور، پدیکور و نیل آرت">Manicure, pedicure, and nail art services</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="assets/icons/facial-treatment.svg" alt="Facial Treatments" width="64" height="64">
+                    </div>
+                    <h3 data-en="Facial Treatments" data-fa="مراقبت از پوست">Facial Treatments</h3>
+                    <p data-en="Rejuvenating facials and skincare treatments" data-fa="فیشال و درمان‌های جوانسازی پوست">Rejuvenating facials and skincare treatments</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="assets/icons/makeup-services.svg" alt="Makeup Services" width="64" height="64">
+                    </div>
+                    <h3 data-en="Makeup Services" data-fa="آرایش">Makeup Services</h3>
+                    <p data-en="Bridal, party, and everyday makeup" data-fa="آرایش عروس، مهمانی و روزانه">Bridal, party, and everyday makeup</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Tour Section -->
+    <section id="gallery" class="virtual-tour">
+        <div class="container">
+            <h2 class="section-title" data-en="Virtual Salon Tour" data-fa="تور مجازی صالون">Virtual Salon Tour</h2>
+            <div class="tour-container">
+                <canvas id="virtual-tour-canvas"></canvas>
+                <div class="tour-controls">
+                    <button class="tour-btn" data-scene="reception" data-en="Reception" data-fa="پذیرش">Reception</button>
+                    <button class="tour-btn" data-scene="styling" data-en="Styling Area" data-fa="منطقه آرایش">Styling Area</button>
+                    <button class="tour-btn" data-scene="spa" data-en="Spa Room" data-fa="اتاق اسپا">Spa Room</button>
+                    <button class="tour-btn" data-scene="nail" data-en="Nail Station" data-fa="ایستگاه ناخن">Nail Station</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-en="What Our Clients Say" data-fa="نظرات مشتریان ما">What Our Clients Say</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial active">
+                    <div class="testimonial-content">
+                        <p data-en="Amazing service! The staff is so professional and friendly. I always leave feeling beautiful and confident." data-fa="خدمات فوق‌العاده! کارکنان بسیار حرفه‌ای و دوستانه هستند. همیشه با احساس زیبایی و اعتماد به نفس از آنجا خارج می‌شوم.">Amazing service! The staff is so professional and friendly. I always leave feeling beautiful and confident.</p>
+                        <div class="testimonial-author">
+                            <h4>Sarah Ahmed</h4>
+                            <span data-en="Regular Client" data-fa="مشتری دائمی">Regular Client</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p data-en="The best beauty salon in Dubai! Their attention to detail and luxury atmosphere is unmatched." data-fa="بهترین صالون زیبایی در دبی! توجه آنها به جزئیات و فضای لوکس بی‌نظیر است.">The best beauty salon in Dubai! Their attention to detail and luxury atmosphere is unmatched.</p>
+                        <div class="testimonial-author">
+                            <h4>Fatima Al-Zahra</h4>
+                            <span data-en="VIP Client" data-fa="مشتری ویژه">VIP Client</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p data-en="Exceptional quality and luxury experience. The team made me feel like royalty during my wedding preparation." data-fa="کیفیت استثنایی و تجربه لوکس. تیم باعث شد در طول آماده‌سازی عروسی‌ام احساس شاهزاده بودن کنم.">Exceptional quality and luxury experience. The team made me feel like royalty during my wedding preparation.</p>
+                        <div class="testimonial-author">
+                            <h4>Aisha Al-Mansouri</h4>
+                            <span data-en="Bride" data-fa="عروس">Bride</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="social-proof-content">
+                <div class="reviews-stream">
+                    <div class="review-card glass-effect">
+                        <div class="review-rating">
+                            <div class="stars">
+                                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                            </div>
+                            <span class="rating-score">4.9/5</span>
+                        </div>
+                        <p data-en="Absolutely amazing experience! Best salon in Dubai." data-fa="تجربه‌ای فوق‌العاده! بهترین صالون در دبی.">Absolutely amazing experience! Best salon in Dubai.</p>
+                        <div class="review-author">
+                            <div class="author-avatar">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="author-name">Maria S.</span>
+                                <span class="review-source">Google Reviews</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card glass-effect">
+                        <div class="review-rating">
+                            <div class="stars">
+                                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                            </div>
+                            <span class="rating-score">5.0/5</span>
+                        </div>
+                        <p data-en="Perfect service, professional staff, luxury atmosphere!" data-fa="سرویس عالی، کارکنان حرفه‌ای، جو لوکس!">Perfect service, professional staff, luxury atmosphere!</p>
+                        <div class="review-author">
+                            <div class="author-avatar">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="author-name">Layla K.</span>
+                                <span class="review-source">Facebook</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <div class="badge-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="badge-text">
+                            <span class="badge-title" data-en="Award Winner" data-fa="برنده جایزه">Award Winner</span>
+                            <span class="badge-subtitle" data-en="Best Salon Dubai 2024" data-fa="بهترین صالون دبی ۲۰۲۴">Best Salon Dubai 2024</span>
+                        </div>
+                    </div>
+                    
+                    <div class="trust-badge">
+                        <div class="badge-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1M10 17L6 13L7.41 11.59L10 14.17L16.59 7.58L18 9L10 17Z"/>
+                            </svg>
+                        </div>
+                        <div class="badge-text">
+                            <span class="badge-title" data-en="Certified" data-fa="تایید شده">Certified</span>
+                            <span class="badge-subtitle" data-en="Licensed Professionals" data-fa="متخصصان مجاز">Licensed Professionals</span>
+                        </div>
+                    </div>
+                    
+                    <div class="trust-badge">
+                        <div class="badge-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/>
+                            </svg>
+                        </div>
+                        <div class="badge-text">
+                            <span class="badge-title" data-en="Premium" data-fa="درجه یک">Premium</span>
+                            <span class="badge-subtitle" data-en="Luxury Products Only" data-fa="فقط محصولات لوکس">Luxury Products Only</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers Section -->
+    <section id="careers" class="careers">
+        <div class="container">
+            <h2 class="section-title" data-en="Join Our Team" data-fa="به تیم ما بپیوندید">Join Our Team</h2>
+            <div class="careers-content">
+                <div class="careers-text">
+                    <h3 data-en="Build Your Beauty Career with Us" data-fa="حرفه زیبایی خود را با ما بسازید">Build Your Beauty Career with Us</h3>
+                    <p data-en="We're always looking for talented individuals passionate about beauty and customer service. Join our team and grow in a supportive, luxury environment." data-fa="ما همیشه به دنبال افراد با استعداد و علاقه‌مند به زیبایی و خدمات مشتری هستیم. به تیم ما بپیوندید و در محیطی حمایتگر و لوکس رشد کنید.">We're always looking for talented individuals passionate about beauty and customer service. Join our team and grow in a supportive, luxury environment.</p>
+                    <ul class="careers-benefits">
+                        <li data-en="Competitive salary and commission" data-fa="حقوق و کمیسیون رقابتی">Competitive salary and commission</li>
+                        <li data-en="Professional development opportunities" data-fa="فرصت‌های توسعه حرفه‌ای">Professional development opportunities</li>
+                        <li data-en="Flexible working hours" data-fa="ساعات کاری انعطاف‌پذیر">Flexible working hours</li>
+                        <li data-en="Staff discounts on services" data-fa="تخفیف کارکنان بر خدمات">Staff discounts on services</li>
+                    </ul>
+                </div>
+                <div class="careers-positions">
+                    <h4 data-en="Current Openings" data-fa="موقعیت‌های فعلی">Current Openings</h4>
+                    <div class="position-card">
+                        <h5 data-en="Senior Hair Stylist" data-fa="آرایشگر ارشد">Senior Hair Stylist</h5>
+                        <p data-en="3+ years experience required" data-fa="حداقل 3 سال تجربه">3+ years experience required</p>
+                    </div>
+                    <div class="position-card">
+                        <h5 data-en="Nail Technician" data-fa="متخصص ناخن">Nail Technician</h5>
+                        <p data-en="Certified with portfolio" data-fa="دارای گواهینامه و نمونه کار">Certified with portfolio</p>
+                    </div>
+                    <div class="position-card">
+                        <h5 data-en="Beauty Consultant" data-fa="مشاور زیبایی">Beauty Consultant</h5>
+                        <p data-en="Customer service focused" data-fa="متمرکز بر خدمات مشتری">Customer service focused</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-en="Get In Touch" data-fa="ارتباط با ما">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4 data-en="Location" data-fa="موقعیت">Location</h4>
+                        <p data-en="Dubai Mall, Downtown Dubai, UAE" data-fa="دبی مال، مرکز شهر دبی، امارات متحده عربی">Dubai Mall, Downtown Dubai, UAE</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4 data-en="Phone" data-fa="تلفن">Phone</h4>
+                        <p>+971 4 123 4567</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4 data-en="Email" data-fa="ایمیل">Email</h4>
+                        <p>info@glamourpalace.ae</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4 data-en="Hours" data-fa="ساعات کار">Hours</h4>
+                        <p data-en="Mon-Sun: 9AM - 9PM" data-fa="دوشنبه تا یکشنبه: 9 صبح - 9 شب">Mon-Sun: 9AM - 9PM</p>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Name | نام" required>
+                    <input type="email" placeholder="Email | ایمیل" required>
+                    <input type="tel" placeholder="Phone | تلفن" required>
+                    <select required>
+                        <option value="" data-en="Select Service" data-fa="انتخاب خدمات">Select Service</option>
+                        <option value="hair" data-en="Hair Styling" data-fa="آرایش مو">Hair Styling</option>
+                        <option value="nails" data-en="Nail Care" data-fa="مراقبت از ناخن">Nail Care</option>
+                        <option value="facial" data-en="Facial Treatment" data-fa="مراقبت از پوست">Facial Treatment</option>
+                        <option value="makeup" data-en="Makeup" data-fa="آرایش">Makeup</option>
+                    </select>
+                    <textarea placeholder="Message | پیام" rows="4"></textarea>
+                    <button type="submit" data-en="Send Message" data-fa="ارسال پیام">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Glamour Palace | گلامور پالس</h4>
+                    <p data-en="Dubai's premier beauty destination" data-fa="مقصد اصلی زیبایی دبی">Dubai's premier beauty destination</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Quick Links" data-fa="لینک‌های سریع">Quick Links</h4>
+                    <ul>
+                        <li><a href="#services" data-en="Services" data-fa="خدمات">Services</a></li>
+                        <li><a href="#gallery" data-en="Gallery" data-fa="گالری">Gallery</a></li>
+                        <li><a href="#careers" data-en="Careers" data-fa="فرصت‌های شغلی">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Follow Us" data-fa="ما را دنبال کنید">Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">
+                            <img src="assets/icons/instagram.svg" alt="Instagram" width="24" height="24">
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <img src="assets/icons/facebook.svg" alt="Facebook" width="24" height="24">
+                        </a>
+                        <a href="#" aria-label="WhatsApp">
+                            <img src="assets/icons/whatsapp.svg" alt="WhatsApp" width="24" height="24">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Glamour Palace. <span data-en="All rights reserved" data-fa="تمامی حقوق محفوظ است">All rights reserved</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/webgl-tour.js"></script>
+    <script src="scripts/language.js"></script>
+</body>
+</html>

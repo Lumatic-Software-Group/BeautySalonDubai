@@ -1,0 +1,400 @@
+/* ===== DESIGN SYSTEM - Beauty Salon ===== */
+
+/* Import Enhanced Typography */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+/* ===== CSS CUSTOM PROPERTIES - DESIGN TOKENS ===== */
+:root {
+    /* Primary Palette - Luxury Minimalism */
+    --primary-gold: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+    --primary-gold-solid: #D4AF37;
+    --primary-gold-dark: #B8860B;
+    --accent-rose-gold: #E8B4A0;
+    --neutral-warm: #F8F6F0;
+    --neutral-light: #FEFDF9;
+    
+    /* Supporting Colors */
+    --deep-charcoal: #2C2C2C;
+    --soft-gray: #8E8E8E;
+    --success-green: #7FB069;
+    --error-coral: #E07A5F;
+    --white: #FFFFFF;
+    
+    /* Typography Scale - Modular Scale (1.250 - Major Third) */
+    --text-xs: 0.8rem;     /* 12.8px */
+    --text-sm: 1rem;       /* 16px */
+    --text-base: 1.25rem;  /* 20px */
+    --text-lg: 1.563rem;   /* 25px */
+    --text-xl: 1.953rem;   /* 31.25px */
+    --text-2xl: 2.441rem;  /* 39px */
+    --text-3xl: 3.052rem;  /* 48.8px */
+    --text-4xl: 3.815rem;  /* 61px */
+    
+    /* Font Families */
+    --font-headline: 'Bodoni Moda', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Spacing Scale */
+    --space-xs: 0.5rem;    /* 8px */
+    --space-sm: 0.75rem;   /* 12px */
+    --space-base: 1rem;    /* 16px */
+    --space-md: 1.5rem;    /* 24px */
+    --space-lg: 2rem;      /* 32px */
+    --space-xl: 3rem;      /* 48px */
+    --space-2xl: 4rem;     /* 64px */
+    --space-3xl: 6rem;     /* 96px */
+    
+    /* Border Radius */
+    --radius-sm: 0.375rem;  /* 6px */
+    --radius-base: 0.5rem;  /* 8px */
+    --radius-md: 0.75rem;   /* 12px */
+    --radius-lg: 1rem;      /* 16px */
+    --radius-xl: 1.5rem;    /* 24px */
+    --radius-2xl: 2rem;     /* 32px */
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --shadow-base: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+    --shadow-md: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+    --shadow-lg: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    --shadow-xl: 0 20px 25px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.04);
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease-out;
+    --transition-base: 0.3s ease-out;
+    --transition-slow: 0.5s ease-out;
+    --transition-bounce: 0.3s cubic-bezier(.25,.8,.25,1);
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Z-Index Scale */
+    --z-negative: -1;
+    --z-base: 0;
+    --z-elevated: 10;
+    --z-sticky: 100;
+    --z-overlay: 1000;
+    --z-modal: 2000;
+    --z-tooltip: 3000;
+}
+
+/* ===== TYPOGRAPHY SYSTEM ===== */
+
+/* Headlines - Bodoni Moda */
+.hero-title, 
+.section-title,
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headline);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--deep-charcoal);
+}
+
+/* Body Text - Inter */
+body, 
+.body-text,
+p, span, div, li, td, th {
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.005em;
+    color: var(--deep-charcoal);
+}
+
+/* Typography Sizes */
+.text-xs { font-size: var(--text-xs); }
+.text-sm { font-size: var(--text-sm); }
+.text-base { font-size: var(--text-base); }
+.text-lg { font-size: var(--text-lg); }
+.text-xl { font-size: var(--text-xl); }
+.text-2xl { font-size: var(--text-2xl); }
+.text-3xl { font-size: var(--text-3xl); }
+.text-4xl { font-size: var(--text-4xl); }
+
+/* Font Weights */
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+
+/* ===== UTILITY CLASSES ===== */
+
+/* Spacing */
+.p-xs { padding: var(--space-xs); }
+.p-sm { padding: var(--space-sm); }
+.p-base { padding: var(--space-base); }
+.p-md { padding: var(--space-md); }
+.p-lg { padding: var(--space-lg); }
+.p-xl { padding: var(--space-xl); }
+
+.m-xs { margin: var(--space-xs); }
+.m-sm { margin: var(--space-sm); }
+.m-base { margin: var(--space-base); }
+.m-md { margin: var(--space-md); }
+.m-lg { margin: var(--space-lg); }
+.m-xl { margin: var(--space-xl); }
+
+/* Colors */
+.text-primary { color: var(--primary-gold-solid); }
+.text-rose-gold { color: var(--accent-rose-gold); }
+.text-charcoal { color: var(--deep-charcoal); }
+.text-gray { color: var(--soft-gray); }
+.text-white { color: var(--white); }
+
+.bg-primary { background: var(--primary-gold); }
+.bg-rose-gold { background-color: var(--accent-rose-gold); }
+.bg-warm { background-color: var(--neutral-warm); }
+.bg-light { background-color: var(--neutral-light); }
+
+/* Gradients */
+.gradient-primary {
+    background: var(--primary-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Borders */
+.border-primary { border-color: var(--primary-gold-solid); }
+.border-rose-gold { border-color: var(--accent-rose-gold); }
+
+/* Shadows */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-base { box-shadow: var(--shadow-base); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+
+/* Border Radius */
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-base { border-radius: var(--radius-base); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-2xl { border-radius: var(--radius-2xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+/* Transitions */
+.transition-fast { transition: all var(--transition-fast); }
+.transition-base { transition: all var(--transition-base); }
+.transition-slow { transition: all var(--transition-slow); }
+.transition-bounce { transition: all var(--transition-bounce); }
+.transition-smooth { transition: all var(--transition-smooth); }
+
+/* ===== COMPONENT BASE STYLES ===== */
+
+/* Enhanced Container */
+.container-enhanced {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 5vw, 8rem);
+}
+
+/* Section Spacing */
+.section-enhanced {
+    padding: clamp(4rem, 12vh, 12rem) 0;
+}
+
+/* Glass Effect */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Card Elevation System */
+.card-elevated {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-bounce);
+    overflow: hidden;
+}
+
+.card-elevated:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+}
+
+/* Button System */
+.btn-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    font-family: var(--font-body);
+    font-weight: 500;
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-bounce);
+    text-decoration: none;
+    font-size: var(--text-base);
+    min-height: 44px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: var(--primary-gold);
+    color: var(--white);
+    box-shadow: var(--shadow-base);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary-gold-solid);
+    border: 2px solid var(--primary-gold-solid);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-gold-solid);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* Ripple Effect */
+.btn-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-ripple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transition: width 0.6s, height 0.6s, top 0.6s, left 0.6s;
+}
+
+.btn-ripple:active::before {
+    width: 300px;
+    height: 300px;
+    top: calc(50% - 150px);
+    left: calc(50% - 150px);
+}
+
+/* ===== ANIMATIONS ===== */
+
+/* Loading Skeleton */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: var(--radius-base);
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s var(--transition-smooth) forwards;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+        transform: translate3d(0,0,0);
+    }
+    40%, 43% {
+        transform: translate3d(0, -30px, 0);
+    }
+    70% {
+        transform: translate3d(0, -15px, 0);
+    }
+    90% {
+        transform: translate3d(0, -4px, 0);
+    }
+}
+
+.animate-bounce {
+    animation: bounce 1s ease-in-out;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ===== RESPONSIVE DESIGN TOKENS ===== */
+@media (max-width: 768px) {
+    :root {
+        --text-3xl: 2.441rem;  /* Smaller on mobile */
+        --text-4xl: 3.052rem;
+        --space-xl: 2rem;      /* Reduced spacing */
+        --space-2xl: 3rem;
+        --space-3xl: 4rem;
+    }
+    
+    .container-enhanced {
+        padding: 0 var(--space-base);
+    }
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+
+/* Focus States */
+.btn-base:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--primary-gold-solid);
+    outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-gold-solid: #000000;
+        --deep-charcoal: #000000;
+        --soft-gray: #666666;
+    }
+}
