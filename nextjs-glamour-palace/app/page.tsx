@@ -9,6 +9,7 @@ import TestimonialsSection from '@/components/TestimonialsSection'
 import CareersSection from '@/components/CareersSection'
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
+import FontLoader from '@/components/FontLoader'
 
 export default function Home() {
   const [currentLanguage, setCurrentLanguage] = useState('en')
@@ -42,14 +43,12 @@ export default function Home() {
     }
     document.title = titles[currentLanguage as keyof typeof titles]
     
-    // Apply Vazir font for Persian
-    if (currentLanguage === 'fa') {
-      document.documentElement.style.setProperty('--font-body', "'Vazir', 'Tahoma', 'Arial', sans-serif")
-      document.documentElement.style.setProperty('--font-headline', "'Vazir', 'Tahoma', 'Arial', sans-serif")
-    } else {
-      document.documentElement.style.setProperty('--font-body', "'Inter', sans-serif")
-      document.documentElement.style.setProperty('--font-headline', "'Bodoni Moda', serif")
-    }
+    // Force Vazir font for all elements
+    document.documentElement.style.setProperty('--font-body', "'Vazir', 'Tahoma', 'Arial', sans-serif")
+    document.documentElement.style.setProperty('--font-headline', "'Vazir', 'Tahoma', 'Arial', sans-serif")
+    
+    // Apply Vazir font to body
+    document.body.style.fontFamily = "'Vazir', 'Tahoma', 'Arial', sans-serif"
   }, [currentLanguage])
 
   const handleLanguageChange = (lang: string) => {
@@ -58,6 +57,7 @@ export default function Home() {
 
   return (
     <main className="main-content">
+      <FontLoader />
       <Navigation 
         currentLanguage={currentLanguage}
         onLanguageChange={handleLanguageChange}
