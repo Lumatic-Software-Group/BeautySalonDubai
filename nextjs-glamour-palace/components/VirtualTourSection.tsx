@@ -14,21 +14,25 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
     reception: {
       en: { name: 'Reception Area', description: 'Welcome to our elegant reception area' },
       fa: { name: 'منطقه پذیرش', description: 'به منطقه پذیرش زیبای ما خوش آمدید' },
+      image: '/assets/images/reception.jpg',
       bg: '#f5f1eb'
     },
     styling: {
       en: { name: 'Hair Styling Stations', description: 'Professional styling with modern equipment' },
       fa: { name: 'ایستگاه‌های آرایش مو', description: 'آرایش حرفه‌ای با تجهیزات مدرن' },
+      image: '/assets/images/styling.jpg',
       bg: '#f9f7f4'
     },
     spa: {
       en: { name: 'Spa Treatment Room', description: 'Relaxing environment for treatments' },
       fa: { name: 'اتاق درمان اسپا', description: 'محیط آرامش‌بخش برای درمان‌ها' },
+      image: '/assets/images/spa.jpg',
       bg: '#e8f5e8'
     },
     nail: {
       en: { name: 'Nail Care Station', description: 'Dedicated area for nail services' },
       fa: { name: 'ایستگاه مراقبت از ناخن', description: 'منطقه اختصاصی برای خدمات ناخن' },
+      image: '/assets/images/nail-station.jpg',
       bg: '#faf0f0'
     }
   }
@@ -45,13 +49,81 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
+    const loadedImages: { [key: string]: HTMLImageElement } = {}
+
     const resizeCanvas = () => {
       canvas.width = canvas.offsetWidth
       canvas.height = canvas.offsetHeight
       drawScene()
     }
 
+    const loadImage = (src: string, key: string) => {
+      const img = new Image()
+      img.crossOrigin = 'anonymous'
+      img.onload = () => {
+        loadedImages[key] = img
+        if (key === currentScene) {
+          drawScene()
+        }
+      }
+      img.onerror = () => {
+        console.log(`Failed to load image: ${src}`)
+        drawFallbackScene()
+      }
+      img.src = src
+    }
+
     const drawScene = () => {
+      const scene = scenes[currentScene as keyof typeof scenes]
+      const sceneText = scene[currentLanguage as keyof typeof scene] as { name: string; description: string }
+      
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      
+      // Draw background image if loaded
+      if (loadedImages[currentScene]) {
+        const img = loadedImages[currentScene]
+        
+        // Calculate dimensions to fill canvas while maintaining aspect ratio
+        const scale = Math.max(canvas.width / img.width, canvas.height / img.height)
+        const x = (canvas.width / 2) - (img.width / 2) * scale
+        const y = (canvas.height / 2) - (img.height / 2) * scale
+        
+        ctx.drawImage(img, x, y, img.width * scale, img.height * scale)
+        
+        // Add overlay for text readability
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.4)'
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+      } else {
+        // Fallback background color
+        ctx.fillStyle = scene.bg
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+      }
+      
+      // Title
+      ctx.fillStyle = 'white'
+      ctx.font = 'bold 42px Vazir, Arial'
+      ctx.textAlign = 'center'
+      ctx.textBaseline = 'middle'
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.8)'
+      ctx.shadowBlur = 10
+      ctx.shadowOffsetX = 2
+      ctx.shadowOffsetY = 2
+      ctx.fillText(sceneText.name, canvas.width / 2, canvas.height / 2 - 30)
+      
+      // Description
+      ctx.font = '20px Vazir, Arial'
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.95)'
+      ctx.shadowBlur = 5
+      ctx.fillText(sceneText.description, canvas.width / 2, canvas.height / 2 + 30)
+      
+      // Reset shadow
+      ctx.shadowColor = 'transparent'
+      ctx.shadowBlur = 0
+      ctx.shadowOffsetX = 0
+      ctx.shadowOffsetY = 0
+    }
+
+    const drawFallbackScene = () => {
       const scene = scenes[currentScene as keyof typeof scenes]
       const sceneText = scene[currentLanguage as keyof typeof scene] as { name: string; description: string }
       
@@ -70,9 +142,7 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
       
       // Title
       ctx.fillStyle = '#D4AF37'
-      ctx.font = currentLanguage === 'fa' ? 
-        'bold 42px Vazir, Arial' : 
-        'bold 42px "Bodoni Moda", serif'
+      ctx.font = 'bold 42px Vazir, Arial'
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
       ctx.shadowColor = 'rgba(0, 0, 0, 0.3)'
@@ -80,9 +150,7 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
       ctx.fillText(sceneText.name, canvas.width / 2, canvas.height / 2 - 30)
       
       // Description
-      ctx.font = currentLanguage === 'fa' ? 
-        '20px Vazir, Arial' : 
-        '20px Inter, sans-serif'
+      ctx.font = '20px Vazir, Arial'
       ctx.fillStyle = '#666'
       ctx.shadowBlur = 5
       ctx.fillText(sceneText.description, canvas.width / 2, canvas.height / 2 + 30)
@@ -90,6 +158,14 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
       ctx.shadowColor = 'transparent'
       ctx.shadowBlur = 0
     }
+
+    // Load all scene images
+    Object.keys(scenes).forEach(key => {
+      const scene = scenes[key as keyof typeof scenes]
+      if (scene.image) {
+        loadImage(scene.image, key)
+      }
+    })
 
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
@@ -111,7 +187,40 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
       <div className="container">
         <h2 className="section-title">{text.title}</h2>
         <div className="tour-container">
-          <canvas ref={canvasRef} className="tour-canvas" />
+          {/* Image-based tour display */}
+          <div className="tour-image-container">
+            {Object.keys(scenes).map((sceneKey) => {
+              const scene = scenes[sceneKey as keyof typeof scenes]
+              const sceneText = scene[currentLanguage as keyof typeof scene] as { name: string; description: string }
+              return (
+                <div 
+                  key={sceneKey}
+                  className={`tour-scene ${currentScene === sceneKey ? 'active' : ''}`}
+                  style={{ backgroundColor: scene.bg }}
+                >
+                  {scene.image && (
+                    <img
+                      src={scene.image}
+                      alt={sceneText.name}
+                      className="scene-image"
+                      onError={(e) => {
+                        // Hide broken image and show fallback
+                        (e.target as HTMLImageElement).style.display = 'none'
+                      }}
+                    />
+                  )}
+                  <div className="scene-overlay">
+                    <h3 className="scene-title">{sceneText.name}</h3>
+                    <p className="scene-description">{sceneText.description}</p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+          
+          {/* Fallback canvas */}
+          <canvas ref={canvasRef} className="tour-canvas-fallback" style={{ display: 'none' }} />
+          
           <div className="tour-controls">
             {tourButtons.map((button) => (
               <button
@@ -158,14 +267,75 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
           margin-top: var(--space-2xl);
         }
 
-        .tour-canvas {
+        .tour-image-container {
+          position: relative;
+          width: 100%;
+          height: 500px;
+          border-radius: var(--radius-xl);
+          overflow: hidden;
+          box-shadow: var(--shadow-lg);
+        }
+
+        .tour-scene {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          transition: opacity 0.5s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .tour-scene.active {
+          opacity: 1;
+        }
+
+        .scene-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        .scene-overlay {
+          position: relative;
+          z-index: 2;
+          text-align: center;
+          background: rgba(0, 0, 0, 0.6);
+          padding: var(--space-xl);
+          border-radius: var(--radius-lg);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .scene-title {
+          color: white;
+          font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+          font-size: var(--text-2xl);
+          font-weight: 700;
+          margin-bottom: var(--space-md);
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .scene-description {
+          color: rgba(255, 255, 255, 0.95);
+          font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+          font-size: var(--text-base);
+          line-height: 1.6;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+        }
+
+        .tour-canvas-fallback {
           width: 100%;
           height: 500px;
           border-radius: var(--radius-xl);
           box-shadow: var(--shadow-lg);
           background: var(--white);
-          cursor: pointer;
-          transition: var(--transition-base);
         }
 
         .tour-controls {
@@ -198,9 +368,21 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
         }
 
         @media (max-width: 768px) {
-          .tour-canvas {
+          .tour-image-container {
             height: 300px;
             border-radius: var(--radius-lg);
+          }
+
+          .scene-overlay {
+            padding: var(--space-lg);
+          }
+
+          .scene-title {
+            font-size: var(--text-xl);
+          }
+
+          .scene-description {
+            font-size: var(--text-sm);
           }
 
           .tour-controls {
