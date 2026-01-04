@@ -246,8 +246,14 @@ export default function Navigation({ currentLanguage, onLanguageChange }: Naviga
         @media (max-width: 768px) {
           .language-toggle {
             top: 15px;
-            right: 15px;
+            left: 15px;
+            right: auto;
             gap: 3px;
+          }
+
+          [dir="rtl"] .language-toggle {
+            left: auto;
+            right: 15px;
           }
 
           .lang-btn {
@@ -258,6 +264,9 @@ export default function Navigation({ currentLanguage, onLanguageChange }: Naviga
           .hamburger {
             display: flex;
             z-index: var(--z-tooltip);
+            background: none;
+            border: none;
+            padding: 8px;
           }
 
           .nav-menu {
@@ -318,6 +327,25 @@ export default function Navigation({ currentLanguage, onLanguageChange }: Naviga
 
           .logo h1 {
             font-size: 1.5rem;
+          }
+
+          .language-toggle {
+            top: 12px;
+            left: 12px;
+          }
+
+          [dir="rtl"] .language-toggle {
+            left: auto;
+            right: 12px;
+          }
+
+          .lang-btn {
+            padding: 5px 10px;
+            font-size: 0.7rem;
+          }
+
+          .hamburger {
+            padding: 6px;
           }
 
           .hamburger span {
