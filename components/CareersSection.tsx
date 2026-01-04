@@ -83,32 +83,32 @@ export default function CareersSection({ currentLanguage }: CareersSectionProps)
   const text = content[currentLanguage as keyof typeof content]
 
   return (
-    <section id="careers" className="careers">
+    <section id="careers" className="careers" aria-labelledby="careers-heading">
       <div className="container">
-        <h2 className="section-title">{text.title}</h2>
+        <h2 id="careers-heading" className="section-title">{text.title}</h2>
         <div className="careers-content">
           <div className="careers-text">
             <h3>{text.subtitle}</h3>
             <p>{text.description}</p>
-            <ul className="careers-benefits">
+            <ul className="careers-benefits" role="list">
               {benefits.map((benefit, index) => (
-                <li key={index}>{benefit[currentLanguage as keyof typeof benefit]}</li>
+                <li key={index} role="listitem">{benefit[currentLanguage as keyof typeof benefit]}</li>
               ))}
             </ul>
           </div>
           <div className="careers-positions">
-            <h4>{text.openingsTitle}</h4>
+            <h3>{text.openingsTitle}</h3>
             {positions.map((position, index) => {
               const positionText = position[currentLanguage as keyof typeof position]
               return (
-                <div key={index} className="position-card">
-                  <h5>{positionText.title}</h5>
+                <article key={index} className="position-card">
+                  <h4>{positionText.title}</h4>
                   <p className="position-requirements">{positionText.requirements}</p>
                   <p className="position-description">{positionText.description}</p>
-                  <button className="btn-base btn-primary apply-btn">
+                  <button className="btn-base btn-primary apply-btn" aria-label={`Apply for ${positionText.title} position`}>
                     {text.applyText}
                   </button>
-                </div>
+                </article>
               )
             })}
           </div>

@@ -78,9 +78,9 @@ export default function ContactSection({ currentLanguage }: ContactSectionProps)
   }
 
   return (
-    <section id="contact" className="contact">
+    <section id="contact" className="contact" aria-labelledby="contact-heading">
       <div className="container">
-        <h2 className="section-title">{text.title}</h2>
+        <h2 id="contact-heading" className="section-title">{text.title}</h2>
         <div className="contact-content">
           <div className="contact-info">
             <div className="contact-item">
@@ -101,55 +101,84 @@ export default function ContactSection({ currentLanguage }: ContactSectionProps)
             </div>
           </div>
           
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="name"
-              placeholder={text.namePlaceholder}
-              value={formData.name}
-              onChange={handleInputChange}
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder={text.emailPlaceholder}
-              value={formData.email}
-              onChange={handleInputChange}
-              required
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder={text.phonePlaceholder}
-              value={formData.phone}
-              onChange={handleInputChange}
-              required
-            />
-            <select
-              name="service"
-              value={formData.service}
-              onChange={handleInputChange}
-              required
-            >
-              <option value="">{text.selectService}</option>
-              {services.map((service, index) => (
-                <option key={index} value={service.en}>
-                  {service[currentLanguage as keyof typeof service]}
-                </option>
-              ))}
-            </select>
-            <textarea
-              name="message"
-              placeholder={text.messagePlaceholder}
-              rows={4}
-              value={formData.message}
-              onChange={handleInputChange}
-            />
+          <form className="contact-form" onSubmit={handleSubmit} noValidate>
+            <div className="form-group">
+              <label htmlFor="name" className="sr-only">{text.namePlaceholder}</label>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder={text.namePlaceholder}
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+                aria-required="true"
+                autoComplete="name"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email" className="sr-only">{text.emailPlaceholder}</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder={text.emailPlaceholder}
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+                aria-required="true"
+                autoComplete="email"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="phone" className="sr-only">{text.phonePlaceholder}</label>
+              <input
+                id="phone"
+                type="tel"
+                name="phone"
+                placeholder={text.phonePlaceholder}
+                value={formData.phone}
+                onChange={handleInputChange}
+                required
+                aria-required="true"
+                autoComplete="tel"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="service" className="sr-only">{text.selectService}</label>
+              <select
+                id="service"
+                name="service"
+                value={formData.service}
+                onChange={handleInputChange}
+                required
+                aria-required="true"
+              >
+                <option value="">{text.selectService}</option>
+                {services.map((service, index) => (
+                  <option key={index} value={service.en}>
+                    {service[currentLanguage as keyof typeof service]}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="form-group">
+              <label htmlFor="message" className="sr-only">{text.messagePlaceholder}</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder={text.messagePlaceholder}
+                rows={4}
+                value={formData.message}
+                onChange={handleInputChange}
+                aria-label={text.messagePlaceholder}
+              />
+            </div>
             <button 
               type="submit" 
-              className="btn-base btn-primary"
+              className="btn-base btn-primary submit-btn"
               disabled={isSubmitting}
+              aria-label={isSubmitting ? (currentLanguage === 'en' ? 'Sending message' : 'در حال ارسال پیام') : text.sendMessage}
             >
               {isSubmitting ? 
                 (currentLanguage === 'en' ? 'Sending...' : 'در حال ارسال...') : 
@@ -316,9 +345,15 @@ export default function ContactSection({ currentLanguage }: ContactSectionProps)
           cursor: pointer;
         }
 
+        .submit-btn {
+          margin-top: var(--space-md);
+          min-height: 50px;
+        }
+
         .contact-form button:disabled {
-          opacity: 0.7;
+          opacity: 0.6;
           cursor: not-allowed;
+          transform: none !important;
         }
 
         .contact-form button:hover:not(:disabled) {
@@ -331,16 +366,80 @@ export default function ContactSection({ currentLanguage }: ContactSectionProps)
           transform: translateY(-1px);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 968px) {
           .contact-content {
             grid-template-columns: 1fr;
             gap: var(--space-2xl);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .contact {
+            padding: var(--space-2xl) 0;
+          }
+
+          .contact-content {
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+          }
+
+          .contact-info {
+            order: 2;
+          }
+
+          .contact-form {
+            order: 1;
+            gap: var(--space-md);
           }
 
           .contact-form input,
           .contact-form select,
           .contact-form textarea {
-            padding: var(--space-sm);
+            font-size: 16px;
+            padding: 0.75rem 0.875rem;
+          }
+
+          .contact-form textarea {
+            min-height: 100px;
+          }
+
+          .submit-btn {
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+          }
+
+          .contact-item {
+            padding: var(--space-md);
+            margin-bottom: var(--space-md);
+          }
+
+          .contact-item h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+          }
+
+          .contact-item p {
+            font-size: 0.9375rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .contact {
+            padding: var(--space-xl) 0;
+          }
+
+          .contact-form {
+            gap: 0.75rem;
+          }
+
+          .contact-form input,
+          .contact-form select,
+          .contact-form textarea {
+            padding: 0.625rem 0.75rem;
+          }
+
+          .contact-item {
+            padding: var(--space-sm) var(--space-md);
           }
         }
 

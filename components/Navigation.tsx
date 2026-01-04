@@ -39,33 +39,39 @@ export default function Navigation({ currentLanguage, onLanguageChange }: Naviga
 
   return (
     <>
-      <div className="language-toggle">
+      <div className="language-toggle" role="group" aria-label="Language selection">
         <button
           onClick={() => onLanguageChange('en')}
           className={`lang-btn ${currentLanguage === 'en' ? 'active' : ''}`}
+          aria-label="Switch to English"
+          aria-pressed={currentLanguage === 'en'}
         >
           EN
         </button>
         <button
           onClick={() => onLanguageChange('fa')}
           className={`lang-btn ${currentLanguage === 'fa' ? 'active' : ''}`}
+          aria-label="Switch to Persian"
+          aria-pressed={currentLanguage === 'fa'}
         >
           فا
         </button>
       </div>
 
-      <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`} role="navigation" aria-label="Main navigation">
         <div className="nav-container">
           <div className="logo">
-            <h2>{currentLanguage === 'en' ? 'Glamour Palace' : 'گلامور پالس'}</h2>
+            <h1>{currentLanguage === 'en' ? 'Glamour Palace' : 'گلامور پالس'}</h1>
           </div>
           
-          <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
+          <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`} role="menubar">
             {navItems.map((item, index) => (
-              <li key={index}>
+              <li key={index} role="none">
                 <button
                   onClick={() => handleNavClick(item.href)}
                   className="nav-link"
+                  role="menuitem"
+                  aria-label={`Navigate to ${currentLanguage === 'en' ? item.en : item.fa} section`}
                 >
                   {currentLanguage === 'en' ? item.en : item.fa}
                 </button>
@@ -73,14 +79,17 @@ export default function Navigation({ currentLanguage, onLanguageChange }: Naviga
             ))}
           </ul>
           
-          <div 
+          <button
             className={`hamburger ${isMenuOpen ? 'active' : ''}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="nav-menu"
           >
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </button>
         </div>
       </nav>
 
@@ -149,19 +158,19 @@ export default function Navigation({ currentLanguage, onLanguageChange }: Naviga
           padding: 0 20px;
         }
 
-        .logo h2 {
+        .logo h1 {
           font-family: var(--font-script-primary);
           background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          font-size: 2.5rem;
+          font-size: clamp(1.5rem, 4vw, 2.5rem);
           font-weight: 400;
           margin: 0;
           letter-spacing: 0.02em;
         }
 
-        [dir="rtl"] .logo h2 {
+        [dir="rtl"] .logo h1 {
           font-family: var(--font-persian);
           font-weight: 300;
           -webkit-text-fill-color: var(--primary-gold-solid);
@@ -238,15 +247,17 @@ export default function Navigation({ currentLanguage, onLanguageChange }: Naviga
           .language-toggle {
             top: 15px;
             right: 15px;
+            gap: 3px;
           }
 
           .lang-btn {
-            padding: 6px 10px;
-            font-size: var(--text-xs);
+            padding: 6px 12px;
+            font-size: 0.75rem;
           }
 
           .hamburger {
             display: flex;
+            z-index: var(--z-tooltip);
           }
 
           .nav-menu {
@@ -257,25 +268,61 @@ export default function Navigation({ currentLanguage, onLanguageChange }: Naviga
             height: calc(100vh - 70px);
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
             padding-top: var(--space-2xl);
-            transition: var(--transition-base);
-            gap: var(--space-xl);
+            transition: right 0.3s ease-in-out;
+            gap: var(--space-lg);
             z-index: var(--z-modal);
+            overflow-y: auto;
+          }
+
+          [dir="rtl"] .nav-menu {
+            right: auto;
+            left: -100%;
           }
 
           .nav-menu.active {
             right: 0;
           }
 
+          [dir="rtl"] .nav-menu.active {
+            right: auto;
+            left: 0;
+          }
+
           .nav-link {
-            font-size: var(--text-lg);
-            padding: var(--space-md) 0;
+            font-size: 1.125rem;
+            padding: var(--space-md) var(--space-lg);
             width: 80%;
             text-align: center;
             border-bottom: 1px solid var(--neutral-warm);
+          }
+
+          .nav-link:hover::after {
+            width: 50%;
+            left: 25%;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .navbar {
+            padding: 10px 0;
+          }
+
+          .nav-container {
+            padding: 0 15px;
+          }
+
+          .logo h1 {
+            font-size: 1.5rem;
+          }
+
+          .hamburger span {
+            width: 22px;
+            height: 2px;
           }
         }
       `}</style>

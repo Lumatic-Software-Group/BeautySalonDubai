@@ -105,9 +105,9 @@ export default function TestimonialsSection({ currentLanguage }: TestimonialsSec
   const text = content[currentLanguage as keyof typeof content]
 
   return (
-    <section id="testimonials" className="testimonials-section">
+    <section id="testimonials" className="testimonials-section" aria-labelledby="testimonials-heading">
       <div className="container">
-        <h2 className="section-title">{text.title}</h2>
+        <h2 id="testimonials-heading" className="section-title">{text.title}</h2>
         
         <div className="testimonials-slider">
           {testimonials.map((testimonial, index) => {

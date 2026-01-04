@@ -183,11 +183,11 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
   const text = content[currentLanguage as keyof typeof content]
 
   return (
-    <section id="gallery" className="virtual-tour">
+    <section id="gallery" className="virtual-tour" aria-labelledby="tour-heading">
       <div className="container">
-        <h2 className="section-title">{text.title}</h2>
+        <h2 id="tour-heading" className="section-title">{text.title}</h2>
         <div className="tour-container">
-          <div className="tour-image-container">
+          <div className="tour-image-container" role="img" aria-live="polite" aria-label={`Virtual tour showing ${scenes[currentScene as keyof typeof scenes][currentLanguage as keyof typeof scenes.reception].name}`}>
             {Object.keys(scenes).map((sceneKey) => {
               const scene = scenes[sceneKey as keyof typeof scenes]
               const sceneText = scene[currentLanguage as keyof typeof scene] as { name: string; description: string }
@@ -200,8 +200,9 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
                   {scene.image && (
                     <img
                       src={scene.image}
-                      alt={sceneText.name}
+                      alt={`${sceneText.name} - ${sceneText.description}`}
                       className="scene-image"
+                      loading="lazy"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = 'none'
                       }}
@@ -216,13 +217,15 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
             })}
           </div>
           
-          <canvas ref={canvasRef} className="tour-canvas-fallback" style={{ display: 'none' }} />
+          <canvas ref={canvasRef} className="tour-canvas-fallback" style={{ display: 'none' }} aria-hidden="true" />
           
-          <div className="tour-controls">
+          <nav className="tour-controls" aria-label="Virtual tour navigation">
             {tourButtons.map((button) => (
               <button
                 key={button.key}
                 className={`tour-btn ${currentScene === button.key ? 'active' : ''}`}
+                aria-label={`View ${button.label}`}
+                aria-pressed={currentScene === button.key}
                 onClick={() => setCurrentScene(button.key)}
               >
                 {currentLanguage === 'en' ? button.en : button.fa}

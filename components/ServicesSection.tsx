@@ -66,25 +66,26 @@ export default function ServicesSection({ currentLanguage }: ServicesSectionProp
   const text = content[currentLanguage as keyof typeof content]
 
   return (
-    <section id="services" className="services">
+    <section id="services" className="services" aria-labelledby="services-heading">
       <div className="container">
-        <h2 className="section-title">{text.title}</h2>
-        <div className="services-grid">
+        <h2 id="services-heading" className="section-title">{text.title}</h2>
+        <div className="services-grid" role="list">
           {services.map((service, index) => {
             const serviceText = service[currentLanguage as keyof typeof service] as { title: string; description: string }
             return (
-              <div key={index} className="service-card card-elevated">
-                <div className="service-icon">
+              <article key={index} className="service-card card-elevated" role="listitem">
+                <div className="service-icon" aria-hidden="true">
                   <Image
                     src={service.icon}
-                    alt={serviceText.title}
+                    alt=""
                     width={48}
                     height={48}
+                    loading="lazy"
                   />
                 </div>
                 <h3>{serviceText.title}</h3>
                 <p>{serviceText.description}</p>
-              </div>
+              </article>
             )
           })}
         </div>
@@ -242,7 +243,18 @@ export default function ServicesSection({ currentLanguage }: ServicesSectionProp
           margin: 0 auto;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 968px) {
+          .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+          }
+        }
+
+        @media (max-width: 640px) {
+          .services {
+            padding: var(--space-2xl) 0;
+          }
+
           .services-grid {
             grid-template-columns: 1fr;
             gap: var(--space-lg);
@@ -260,17 +272,17 @@ export default function ServicesSection({ currentLanguage }: ServicesSectionProp
           }
 
           .service-icon :global(img) {
-            width: 40px;
-            height: 40px;
+            width: 40px !important;
+            height: 40px !important;
           }
 
           .service-card h3 {
-            font-size: var(--text-lg);
+            font-size: 1.5rem;
             margin-bottom: var(--space-sm);
           }
 
           .service-card p {
-            font-size: var(--text-sm);
+            font-size: 0.9375rem;
           }
         }
       `}</style>

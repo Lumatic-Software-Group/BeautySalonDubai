@@ -122,8 +122,8 @@ export default function HeroSection({ currentLanguage }: HeroSectionProps) {
     const text = content[currentLanguage as keyof typeof content]
 
     return (
-        <section id="home" className="hero">
-            <div className="hero-video-container">
+        <section id="home" className="hero" aria-label="Hero section">
+            <div className="hero-video-container" aria-hidden="true">
                 {!videoError && (
                     <video
                         ref={videoRef}
@@ -133,7 +133,8 @@ export default function HeroSection({ currentLanguage }: HeroSectionProps) {
                         playsInline
                         preload="metadata"
                         className="hero-video"
-                        poster="/assets/images/hero-poster.jpg" // Add a poster image as fallback
+                        poster="/assets/images/reception.jpg"
+                        aria-label="Background video showcasing Glamour Palace beauty salon"
                     >
                         <source src={VIDEO_MP4} type="video/mp4" />
                         <source src={VIDEO_WEBM} type="video/webm" />
@@ -144,14 +145,14 @@ export default function HeroSection({ currentLanguage }: HeroSectionProps) {
             </div>
 
             <div className="hero-content">
-                <div className="hero-badge animate-fade-in-up">
+                <div className="hero-badge animate-fade-in-up" role="status" aria-live="polite">
                     <span>{text.badge}</span>
                 </div>
 
-                <h1 className="hero-title">
+                <h2 className="hero-title">
                     <span className="title-line">{text.title1}</span>
                     <span className="title-line title-highlight gradient-primary">{text.title2}</span>
-                </h1>
+                </h2>
 
                 <p className="hero-subtitle">{text.subtitle}</p>
 
@@ -159,28 +160,30 @@ export default function HeroSection({ currentLanguage }: HeroSectionProps) {
                     <button
                         className="btn-base btn-primary btn-ripple"
                         onClick={handleBookConsultation}
+                        aria-label={`${text.btn1} - Navigate to contact form`}
                     >
                         {text.btn1}
                     </button>
                     <button
                         className="btn-base btn-secondary btn-ripple"
                         onClick={handleVirtualTour}
+                        aria-label={`${text.btn2} - View virtual tour of our salon`}
                     >
                         {text.btn2}
                     </button>
                 </div>
 
-                <div className="hero-stats">
-                    <div className="stat">
-                        <span className="stat-number">2000+</span>
+                <div className="hero-stats" role="list" aria-label="Salon statistics">
+                    <div className="stat" role="listitem">
+                        <span className="stat-number" aria-label="Over 2000">{currentLanguage === 'en' ? '2000+' : '۲۰۰۰+'}</span>
                         <span className="stat-label">{text.stat1}</span>
                     </div>
-                    <div className="stat">
-                        <span className="stat-number">5★</span>
+                    <div className="stat" role="listitem">
+                        <span className="stat-number" aria-label="5 star rating">5★</span>
                         <span className="stat-label">{text.stat2}</span>
                     </div>
-                    <div className="stat">
-                        <span className="stat-number">8+</span>
+                    <div className="stat" role="listitem">
+                        <span className="stat-number" aria-label="Over 8 years">{currentLanguage === 'en' ? '8+' : '۸+'}</span>
                         <span className="stat-label">{text.stat3}</span>
                     </div>
                 </div>
@@ -195,6 +198,7 @@ export default function HeroSection({ currentLanguage }: HeroSectionProps) {
                     justify-content: center;
                     overflow: hidden;
                     min-height: 600px;
+                    max-height: 1080px;
                 }
 
                 .hero-video-container {
@@ -417,9 +421,17 @@ export default function HeroSection({ currentLanguage }: HeroSectionProps) {
                 }
 
                 @media (max-width: 768px) {
+                    .hero {
+                        min-height: 500px;
+                    }
+
+                    .hero-content {
+                        padding: 0 var(--space-md);
+                    }
+
                     .hero-badge {
-                        font-size: var(--text-xs);
-                        padding: var(--space-xs) var(--space-md);
+                        font-size: 0.75rem;
+                        padding: 0.5rem 1rem;
                         margin-bottom: var(--space-lg);
                     }
 
@@ -429,28 +441,30 @@ export default function HeroSection({ currentLanguage }: HeroSectionProps) {
                         margin-bottom: var(--space-xl);
                     }
 
-                    .hero-actions .btn-base {
+                    .hero-actions button {
                         width: 100%;
                         max-width: 280px;
-                        padding: var(--space-md) var(--space-lg);
+                        padding: 0.875rem 1.5rem;
+                        font-size: 1rem;
                     }
 
                     .hero-stats {
-                        flex-direction: column;
-                        gap: var(--space-lg);
-                        text-align: center;
+                        flex-wrap: wrap;
+                        gap: var(--space-md);
+                        justify-content: space-around;
                     }
 
                     .stat {
                         min-width: auto;
+                        flex: 1 1 30%;
                     }
 
                     .stat-number {
-                        font-size: var(--text-lg);
+                        font-size: 1.25rem;
                     }
 
                     .stat-label {
-                        font-size: var(--text-xs);
+                        font-size: 0.75rem;
                     }
 
                     .hero-overlay {
@@ -460,6 +474,52 @@ export default function HeroSection({ currentLanguage }: HeroSectionProps) {
                                 rgba(232, 180, 160, 0.7) 50%,
                                 rgba(0, 0, 0, 0.5) 100%
                         );
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .hero {
+                        min-height: 450px;
+                    }
+
+                    .hero-content {
+                        padding: 0 1rem;
+                    }
+
+                    .hero-badge {
+                        font-size: 0.7rem;
+                        padding: 0.4rem 0.875rem;
+                    }
+
+                    .hero-title {
+                        margin-bottom: 1rem;
+                    }
+
+                    .hero-subtitle {
+                        margin-bottom: 1.5rem;
+                        font-size: 0.95rem;
+                    }
+
+                    .hero-actions button {
+                        padding: 0.75rem 1.25rem;
+                        font-size: 0.9375rem;
+                        max-width: 260px;
+                    }
+
+                    .hero-stats {
+                        gap: 0.75rem;
+                    }
+
+                    .stat {
+                        flex: 1 1 45%;
+                    }
+
+                    .stat-number {
+                        font-size: 1.125rem;
+                    }
+
+                    .stat-label {
+                        font-size: 0.7rem;
                     }
                 }
             `}</style>
