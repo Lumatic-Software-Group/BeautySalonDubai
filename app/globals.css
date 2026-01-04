@@ -1,11 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
-@import url('https://cdn.jsdelivr.net/gh/rastikerdar/shabnam-font@v5.0.1/dist/font-face.css');
+/* Note: Fonts are loaded in layout.tsx for better optimization */
 
 :root {
   
@@ -41,7 +35,7 @@
   --font-script-accent: 'Tangerine', cursive;
   --font-headline: 'Bodoni Moda', serif;
   --font-body: 'Inter', sans-serif;
-  --font-persian: 'Shabnam', 'Shabnam Light', 'Shabnam Thin', sans-serif;
+  --font-persian: 'Vazir', 'Vazir FD', Tahoma, Arial, sans-serif;
   
   
   --space-xs: 0.5rem;    
@@ -122,6 +116,29 @@ body {
   font-size: var(--text-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Persian (RTL) font styles */
+[dir="rtl"] body,
+[dir="rtl"] * {
+  font-family: var(--font-persian);
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: var(--font-persian);
+  font-weight: 700;
+}
+
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select,
+[dir="rtl"] button {
+  font-family: var(--font-persian);
 }
 
 h1 {
@@ -260,14 +277,14 @@ p, span, div, li, td, th {
 
 [dir="rtl"] {
   text-align: right;
-  font-family: 'Shabnam', 'Shabnam Light', 'Tahoma', var(--font-body) !important;
-  font-weight: 300;
+  font-family: var(--font-persian) !important;
+  font-weight: 400;
 }
 
 [dir="rtl"] .hero-title,
 [dir="rtl"] .section-title {
-  font-family: 'Shabnam', 'Shabnam Light', var(--font-headline) !important;
-  font-weight: 300;
+  font-family: var(--font-persian) !important;
+  font-weight: 700;
   line-height: 1.4;
 }
 
