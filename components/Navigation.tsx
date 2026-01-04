@@ -98,7 +98,7 @@ export default function Navigation({ currentLanguage, onLanguageChange }: Naviga
           position: fixed;
           top: 20px;
           right: 20px;
-          z-index: var(--z-tooltip);
+          z-index: 1100;
           display: flex;
           gap: 5px;
         }
@@ -139,7 +139,7 @@ export default function Navigation({ currentLanguage, onLanguageChange }: Naviga
           backdrop-filter: blur(var(--blur-strong)) saturate(180%);
           -webkit-backdrop-filter: blur(var(--blur-strong)) saturate(180%);
           border-bottom: 1px solid var(--glass-border);
-          z-index: var(--z-overlay);
+          z-index: 1000;
           padding: 15px 0;
           transition: var(--transition-smooth);
         }
@@ -263,7 +263,7 @@ export default function Navigation({ currentLanguage, onLanguageChange }: Naviga
 
           .hamburger {
             display: flex;
-            z-index: var(--z-tooltip);
+            z-index: 1050;
             background: none;
             border: none;
             padding: 8px;
