@@ -187,7 +187,7 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
       <div className="container">
         <h2 id="tour-heading" className="section-title">{text.title}</h2>
         <div className="tour-container">
-          <div className="tour-image-container" role="img" aria-live="polite" aria-label={`Virtual tour showing ${scenes[currentScene as keyof typeof scenes][currentLanguage as keyof typeof scenes.reception].name}`}>
+          <div className="tour-image-container" role="img" aria-live="polite" aria-label={`Virtual tour of ${text.title}`}>
             {Object.keys(scenes).map((sceneKey) => {
               const scene = scenes[sceneKey as keyof typeof scenes]
               const sceneText = scene[currentLanguage as keyof typeof scene] as { name: string; description: string }
@@ -224,14 +224,14 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
               <button
                 key={button.key}
                 className={`tour-btn ${currentScene === button.key ? 'active' : ''}`}
-                aria-label={`View ${button.label}`}
+                aria-label={`View ${currentLanguage === 'en' ? button.en : button.fa}`}
                 aria-pressed={currentScene === button.key}
                 onClick={() => setCurrentScene(button.key)}
               >
                 {currentLanguage === 'en' ? button.en : button.fa}
               </button>
             ))}
-          </div>
+          </nav>
         </div>
       </div>
 
