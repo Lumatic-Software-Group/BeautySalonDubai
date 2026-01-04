@@ -153,8 +153,19 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <style dangerouslySetInnerHTML={{__html: `
+          /* Prevent FOUC (Flash of Unstyled Content) */
+          html {
+            visibility: visible;
+            opacity: 1;
+          }
+          body {
+            visibility: visible;
+            opacity: 1;
+          }
+        `}} />
         <meta name="theme-color" content="#d4a574" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

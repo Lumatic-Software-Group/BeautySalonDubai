@@ -12,8 +12,12 @@ import Footer from '@/components/Footer'
 
 export default function Home() {
   const [currentLanguage, setCurrentLanguage] = useState('en')
+  const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
+    // Set loaded state to prevent FOUC
+    setIsLoaded(true)
+    
     const savedLanguage = localStorage.getItem('salon-language')
     if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'fa')) {
       setCurrentLanguage(savedLanguage)
@@ -42,7 +46,7 @@ export default function Home() {
   }
 
   return (
-    <main>
+    <main style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.2s ease-in' }}>
       <Navigation 
         currentLanguage={currentLanguage}
         onLanguageChange={handleLanguageChange}

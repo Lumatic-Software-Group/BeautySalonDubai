@@ -103,8 +103,11 @@
   box-sizing: border-box;
 }
 
+/* Prevent FOUC (Flash of Unstyled Content) */
 html {
   scroll-behavior: smooth;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 body {
@@ -116,6 +119,15 @@ body {
   font-size: var(--text-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 100vh;
+}
+
+/* Critical CSS - Load immediately */
+main {
+  display: block;
+  min-height: 100vh;
 }
 
 /* Persian (RTL) font styles */

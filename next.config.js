@@ -6,6 +6,7 @@ const nextConfig = {
     },
     compress: true,
     poweredByHeader: false,
+    reactStrictMode: true,
 
     webpack: (config, { isServer }) => {
         config.module.rules.push({
@@ -21,6 +22,11 @@ const nextConfig = {
 
     experimental: {
         optimizePackageImports: ['lucide-react'],
+    },
+
+    // Optimize fonts and reduce FOUC
+    compiler: {
+        removeConsole: process.env.NODE_ENV === 'production',
     },
 }
 
