@@ -174,18 +174,18 @@ export default function HeroSection({ currentLanguage }: HeroSectionProps) {
                 </div>
 
                 <div className="hero-stats" role="list" aria-label="Salon statistics">
-                    <div className="stat" role="listitem">
-                        <span className="stat-number" aria-label="Over 2000">{currentLanguage === 'en' ? '2000+' : '۲۰۰۰+'}</span>
-                        <span className="stat-label">{text.stat1}</span>
-                    </div>
-                    <div className="stat" role="listitem">
-                        <span className="stat-number" aria-label="5 star rating">5★</span>
-                        <span className="stat-label">{text.stat2}</span>
-                    </div>
-                    <div className="stat" role="listitem">
-                        <span className="stat-number" aria-label="Over 8 years">{currentLanguage === 'en' ? '8+' : '۸+'}</span>
-                        <span className="stat-label">{text.stat3}</span>
-                    </div>
+                    {/*<div className="stat" role="listitem">*/}
+                    {/*    <span className="stat-number" aria-label="Over 2000">{currentLanguage === 'en' ? '2000+' : '۲۰۰۰+'}</span>*/}
+                    {/*    <span className="stat-label">{text.stat1}</span>*/}
+                    {/*</div>*/}
+                    {/*<div className="stat" role="listitem">*/}
+                    {/*    <span className="stat-number" aria-label="5 star rating">5★</span>*/}
+                    {/*    <span className="stat-label">{text.stat2}</span>*/}
+                    {/*</div>*/}
+                    {/*<div className="stat" role="listitem">*/}
+                    {/*    <span className="stat-number" aria-label="Over 8 years">{currentLanguage === 'en' ? '8+' : '۸+'}</span>*/}
+                    {/*    <span className="stat-label">{text.stat3}</span>*/}
+                    {/*</div>*/}
                 </div>
             </div>
 
