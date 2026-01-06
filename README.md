@@ -21,7 +21,7 @@ A modern NextJS implementation of the Glamour Palace beauty salon website, featu
 - Language: TypeScript
 - Styling: CSS-in-JS with CSS Custom Properties
 - Images: NextJS Image component with WebP support
-- Fonts: Google Fonts (Great Vibes, Allura, Parisienne, Bodoni Moda, Inter, Shabnam)
+- Fonts: Google Fonts (Great Vibes, Allura, Parisienne, Bodoni Moda, Inter, Vazir)
 
 ### Project Structure
 
@@ -59,7 +59,7 @@ A modern NextJS implementation of the Glamour Palace beauty salon website, featu
 - Display Headings: Great Vibes, Allura, Parisienne (calligraphy scripts)
 - Headlines: Bodoni Moda (elegant serif)
 - Body Text: Inter (modern sans-serif)
-- Persian Text: Shabnam (Persian-optimized)
+- Persian Text: Vazir (Persian-optimized)
 
 ### Getting Started
 

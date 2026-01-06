@@ -101,7 +101,7 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
       
       
       ctx.fillStyle = 'white'
-      ctx.font = '300 42px Shabnam, Arial'
+      ctx.font = '300 42px Vazir, Tahoma, Arial'
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
       ctx.shadowColor = 'rgba(0, 0, 0, 0.8)'
@@ -111,7 +111,7 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
       ctx.fillText(sceneText.name, canvas.width / 2, canvas.height / 2 - 30)
       
       
-      ctx.font = '300 20px Shabnam, Arial'
+      ctx.font = '300 20px Vazir, Tahoma, Arial'
       ctx.fillStyle = 'rgba(255, 255, 255, 0.95)'
       ctx.shadowBlur = 5
       ctx.fillText(sceneText.description, canvas.width / 2, canvas.height / 2 + 30)
@@ -142,7 +142,7 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
       
       
       ctx.fillStyle = '#D4AF37'
-      ctx.font = '300 42px Shabnam, Arial'
+      ctx.font = '300 42px Vazir, Tahoma, Arial'
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
       ctx.shadowColor = 'rgba(0, 0, 0, 0.3)'
@@ -150,7 +150,7 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
       ctx.fillText(sceneText.name, canvas.width / 2, canvas.height / 2 - 30)
       
       
-      ctx.font = '300 20px Shabnam, Arial'
+      ctx.font = '300 20px Vazir, Tahoma, Arial'
       ctx.fillStyle = '#666'
       ctx.shadowBlur = 5
       ctx.fillText(sceneText.description, canvas.width / 2, canvas.height / 2 + 30)
@@ -315,7 +315,7 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
 
         .scene-title {
           color: white;
-          font-family: 'Shabnam', 'Shabnam Light', 'Tahoma', 'Arial', sans-serif !important;
+          font-family: var(--font-persian) !important;
           font-size: var(--text-2xl);
           font-weight: 700;
           margin-bottom: var(--space-md);
@@ -324,7 +324,7 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
 
         .scene-description {
           color: rgba(255, 255, 255, 0.95);
-          font-family: 'Shabnam', 'Shabnam Light', 'Tahoma', 'Arial', sans-serif !important;
+          font-family: var(--font-persian) !important;
           font-size: var(--text-base);
           line-height: 1.6;
           text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
