@@ -41,19 +41,19 @@ export default function ContactSection({ currentLanguage }: ContactSectionProps)
       messagePlaceholder: "Message"
     },
     fa: {
-      title: "ارتباط با ما",
-      location: "موقعیت",
-      locationText: "دبی مال، مرکز شهر دبی، امارات متحده عربی",
-      phone: "تلفن",
+      title: "تماس با ما",
+      location: "آدرس",
+      locationText: "مرکز خرید دبی مال، مرکز شهر دبی، امارات متحده عربی",
+      phone: "شماره تماس",
       email: "ایمیل",
-      hours: "ساعات کار",
-      hoursText: "دوشنبه تا یکشنبه: 9 صبح - 9 شب",
-      selectService: "انتخاب خدمات",
+      hours: "ساعات کاری",
+      hoursText: "دوشنبه تا یکشنبه: ۹ صبح تا ۹ شب",
+      selectService: "انتخاب خدمت",
       sendMessage: "ارسال پیام",
       namePlaceholder: "نام",
       emailPlaceholder: "ایمیل",
-      phonePlaceholder: "تلفن",
-      messagePlaceholder: "پیام"
+      phonePlaceholder: "شماره تماس",
+      messagePlaceholder: "پیام شما"
     }
   }
 

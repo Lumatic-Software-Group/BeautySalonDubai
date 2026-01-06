@@ -36,7 +36,7 @@ export default function Home() {
     
     const titles = {
       en: 'Glamour Palace - Dubai Beauty Salon',
-      fa: 'گلامور پالس - صالون زیبایی دبی'
+      fa: 'گلامور پالس - سالن زیبایی دبی'
     }
     document.title = titles[currentLanguage as keyof typeof titles]
   }, [currentLanguage])

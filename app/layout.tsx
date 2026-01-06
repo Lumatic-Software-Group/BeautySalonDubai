@@ -6,11 +6,11 @@ const siteUrl = 'https://glamourpalace.ae' // Update with your actual domain
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Glamour Palace - Dubai Beauty Salon | صالون زیبایی گلامور پالس',
+    default: 'Glamour Palace - Dubai Beauty Salon | سالن زیبایی گلامور پالس',
     template: '%s | Glamour Palace Dubai'
   },
   description: 'Premium beauty salon in Downtown Dubai offering luxury hair styling, nail care, spa treatments, facials, and makeup services. Book your appointment today!',
-  keywords: ['beauty salon Dubai', 'hair salon Downtown Dubai', 'nail salon Dubai', 'spa Dubai', 'makeup artist Dubai', 'bridal makeup Dubai', 'luxury salon UAE', 'beauty treatments Dubai', 'صالون زیبایی دبی', 'آرایشگاه زنانه دبی'],
+  keywords: ['beauty salon Dubai', 'hair salon Downtown Dubai', 'nail salon Dubai', 'spa Dubai', 'makeup artist Dubai', 'bridal makeup Dubai', 'luxury salon UAE', 'beauty treatments Dubai', 'سالن زیبایی دبی', 'آرایشگاه زنانه دبی'],
   authors: [{ name: 'Glamour Palace', url: siteUrl }],
   creator: 'Glamour Palace',
   publisher: 'Glamour Palace',

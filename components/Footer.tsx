@@ -16,7 +16,7 @@ export default function Footer({ currentLanguage }: FooterProps) {
       careers: "Careers"
     },
     fa: {
-      tagline: "مقصد اصلی زیبایی دبی",
+      tagline: "برترین مقصد زیبایی دبی",
       quickLinks: "لینک‌های سریع",
       followUs: "ما را دنبال کنید",
       allRights: "تمامی حقوق محفوظ است",

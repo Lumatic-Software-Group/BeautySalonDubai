@@ -16,7 +16,7 @@ export default function ServicesSection({ currentLanguage }: ServicesSectionProp
       },
       fa: {
         title: 'آرایش مو',
-        description: 'کوتاهی، رنگ و استایل حرفه‌ای برای هر مناسبت'
+        description: 'کوتاهی، رنگ‌آمیزی و استایل حرفه‌ای برای هر مناسبتی'
       }
     },
     {

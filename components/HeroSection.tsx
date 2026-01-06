@@ -104,13 +104,13 @@ export default function HeroSection({ currentLanguage }: HeroSectionProps) {
             btn2: "Virtual Tour",
             stat1: "Happy Clients",
             stat2: "Google Rating",
-            stat3: "Years Experience"
+            stat3: "Years of Experience"
         },
         fa: {
-            badge: "مقصد اصلی زیبایی دبی",
+            badge: "برترین مقصد زیبایی دبی",
             title1: "زیبایی درونی",
             title2: "خود را کشف کنید",
-            subtitle: "تجربه خدمات زیبایی لوکس در قلب مرکز شهر دبی",
+            subtitle: "تجربه خدمات زیبایی لوکس در قلب مرکز دبی",
             btn1: "رزرو مشاوره",
             btn2: "تور مجازی",
             stat1: "مشتری راضی",

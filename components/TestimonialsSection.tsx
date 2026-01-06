@@ -12,7 +12,7 @@ export default function TestimonialsSection({ currentLanguage }: TestimonialsSec
   const testimonials = [
     {
       en: {
-        text: "Amazing service! The staff is so professional and friendly. I always leave feeling beautiful and confident.",
+        text: "Amazing service! The staff are so professional and friendly. I always leave feeling beautiful and confident.",
         author: "Sarah Ahmed",
         role: "Regular Client"
       },
@@ -24,12 +24,12 @@ export default function TestimonialsSection({ currentLanguage }: TestimonialsSec
     },
     {
       en: {
-        text: "The best beauty salon in Dubai! Their attention to detail and luxury atmosphere is unmatched.",
+        text: "The best beauty salon in Dubai! Their attention to detail and luxurious atmosphere are unmatched.",
         author: "Fatima Al-Zahra",
         role: "VIP Client"
       },
       fa: {
-        text: "بهترین صالون زیبایی در دبی! توجه آنها به جزئیات و فضای لوکس بی‌نظیر است.",
+        text: "بهترین سالن زیبایی در دبی! توجه آن‌ها به جزئیات و فضای لوکس بی‌نظیر است.",
         author: "فاطمه الزهرا",
         role: "مشتری ویژه"
       }
@@ -41,7 +41,7 @@ export default function TestimonialsSection({ currentLanguage }: TestimonialsSec
         role: "Bride"
       },
       fa: {
-        text: "کیفیت استثنایی و تجربه لوکس. تیم باعث شد در طول آماده‌سازی عروسی‌ام احساس شاهزاده بودن کنم.",
+        text: "کیفیت استثنایی و تجربه لوکس. تیم باعث شد در طول آماده‌سازی عروسی احساس شاهزاده بودن کنم.",
         author: "عایشه المنصوری",
         role: "عروس"
       }
@@ -56,7 +56,7 @@ export default function TestimonialsSection({ currentLanguage }: TestimonialsSec
         source: "Google Reviews"
       },
       fa: {
-        text: "تجربه‌ای فوق‌العاده! بهترین صالون در دبی.",
+        text: "تجربه‌ای فوق‌العاده! بهترین سالن زیبایی در دبی.",
         author: "ماریا س.",
         source: "نظرات گوگل"
       }
@@ -78,7 +78,7 @@ export default function TestimonialsSection({ currentLanguage }: TestimonialsSec
   const trustBadges = [
     {
       en: { title: "Award Winner", subtitle: "Best Salon Dubai 2024" },
-      fa: { title: "برنده جایزه", subtitle: "بهترین صالون دبی ۲۰۲۴" }
+      fa: { title: "برنده جایزه", subtitle: "بهترین سالن زیبایی دبی ۲۰۲۴" }
     },
     {
       en: { title: "Certified", subtitle: "Licensed Professionals" },

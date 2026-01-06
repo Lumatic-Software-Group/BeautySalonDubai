@@ -9,13 +9,13 @@ export default function CareersSection({ currentLanguage }: CareersSectionProps)
     {
       en: {
         title: "Senior Hair Stylist",
-        requirements: "3+ years experience required",
+        requirements: "3+ years of experience required",
         description: "Join our team of expert stylists and create beautiful transformations for our clients."
       },
       fa: {
         title: "آرایشگر ارشد",
-        requirements: "حداقل 3 سال تجربه",
-        description: "به تیم متخصصان آرایشگر ما بپیوندید و تغییرات زیبا برای مشتریان ایجاد کنید."
+        requirements: "حداقل ۳ سال تجربه کاری",
+        description: "به تیم متخصصان آرایشگر ما بپیوندید و تحول زیبا را برای مشتریان خلق کنید."
       }
     },
     {
@@ -26,8 +26,8 @@ export default function CareersSection({ currentLanguage }: CareersSectionProps)
       },
       fa: {
         title: "متخصص ناخن",
-        requirements: "دارای گواهینامه و نمونه کار",
-        description: "نیل آرت خیره‌کننده ایجاد کنید و خدمات حرفه‌ای مراقبت از ناخن ارائه دهید."
+        requirements: "دارای گواهینامه و نمونه‌کار",
+        description: "طراحی ناخن خیره‌کننده ایجاد کنید و خدمات حرفه‌ای مراقبت از ناخن ارائه دهید."
       }
     },
     {
@@ -38,8 +38,8 @@ export default function CareersSection({ currentLanguage }: CareersSectionProps)
       },
       fa: {
         title: "مشاور زیبایی",
-        requirements: "متمرکز بر خدمات مشتری",
-        description: "به مشتریان کمک کنید تا درمان‌های زیبایی کامل را انتخاب کنند و مشاوره تخصصی ارائه دهید."
+        requirements: "متمرکز بر خدمات مشتریان",
+        description: "به مشتریان کمک کنید تا بهترین درمان‌های زیبایی را انتخاب کنند و مشاوره تخصصی ارائه دهید."
       }
     }
   ]
@@ -74,9 +74,9 @@ export default function CareersSection({ currentLanguage }: CareersSectionProps)
     fa: {
       title: "به تیم ما بپیوندید",
       subtitle: "حرفه زیبایی خود را با ما بسازید",
-      description: "ما همیشه به دنبال افراد با استعداد و علاقه‌مند به زیبایی و خدمات مشتری هستیم. به تیم ما بپیوندید و در محیطی حمایتگر و لوکس رشد کنید.",
-      openingsTitle: "موقعیت‌های فعلی",
-      applyText: "درخواست شغل"
+      description: "ما همیشه به دنبال افراد مستعد و علاقه‌مند به زیبایی و خدمات به مشتریان هستیم. به تیم ما بپیوندید و در محیطی حمایتگر و لوکس رشد کنید.",
+      openingsTitle: "موقعیت‌های شغلی باز",
+      applyText: "درخواست همکاری"
     }
   }
 

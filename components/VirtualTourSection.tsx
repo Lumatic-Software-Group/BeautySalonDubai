@@ -39,7 +39,7 @@ export default function VirtualTourSection({ currentLanguage }: VirtualTourSecti
 
   const content = {
     en: { title: 'Virtual Salon Tour' },
-    fa: { title: 'تور مجازی صالون' }
+    fa: { title: 'تور مجازی سالن' }
   }
 
   useEffect(() => {
